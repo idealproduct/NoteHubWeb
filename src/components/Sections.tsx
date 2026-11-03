@@ -69,7 +69,7 @@ export function About() {
                   <h4 className="mt-5 text-xl font-bold">
                     {member.name}
                   </h4>
-                  <p className="mt-2 font-medium text-teal">{member.role}</p>
+                  <p className="mt-2 text-base font-bold text-teal">{member.role}</p>
                   <p className="mt-3 text-muted">{member.bio}</p>
                   {member.github && (
                     <a

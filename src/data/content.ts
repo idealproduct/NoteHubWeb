@@ -1,4 +1,60 @@
 import type { Project, TeamMember, TutorialStep } from '../types'
+
+// const memberinfo: string[][] = [
+//   ['余光昇', '電機四', '', ''],
+//   ['邱鈺璇', '護理三', '協助長者健康需求評估、參與輔具設計發想', ''],
+//   ['楊喻翔', '資工一', '', ''],
+//   ['陳怡光', '資工一', '機動組員', ''],
+//   ['林奕丞', '資工一', '網頁設計、應用程式設計', ''],
+//   ['沈少宇', '資工一', '', '']
+// ] 一坨答辯
+
+interface MemberInfo {
+  class?: string
+  name?: string
+  role?: string
+  bio?: string
+}
+
+const memberinfo: MemberInfo[] = [
+  {
+    class: '電機四',
+    name: '余光昇',
+    role: '上台報告',
+    bio: ''
+  },
+  {
+    class: '護理三',
+    name: '邱鈺璇',
+    role: '協助長者健康需求評估、參與輔具設計發想',
+    bio: ''
+  },
+  {
+    class: '資工一',
+    name: '楊喻翔',
+    role: '',
+    bio: ''
+  },
+  {
+    class: '資工一',
+    name: '陳怡光',
+    role: '機動組員',
+    bio: ''
+  },
+  {
+    class: '資工一',
+    name: '林奕丞',
+    role: '網頁設計、應用程式設計',
+    bio: ''
+  },
+  {
+    class: '資工一',
+    name: '沈少宇',
+    role: ' 參與討論、想法提供、技術支援',
+    bio: ''
+  }
+]
+
 export const project: Project = {
   name: 'Notehub 樂齡日記', platform: 'Android App', repository: 'https://github.com/idealproduct/NoteHub',
   screenshot: import.meta.env.BASE_URL + 'images/app-phase2.png',
@@ -9,9 +65,12 @@ export const contact = { email: 's111314108@student.nqu.edu.tw' }
 // 僅加入已取得本人同意且確認的成員資料；avatar 可使用 import.meta.env.BASE_URL + 'images/檔名'。
 export const team: TeamMember[] = Array.from({ length: 6 }, (_, index) => ({
   id: `member-${index + 1}`,
-  name: `成員 ${String(index + 1).padStart(2, '0')}・姓名待補`,
-  role: '團隊職責待補',
-  bio: '個人簡介待補，確認後將在這裡介紹這位夥伴。',
+  // name: `成員 ${String(index + 1).padStart(2, '0')}・姓名待補`,
+  name: `${memberinfo[index].class}    ${memberinfo[index].name}`,
+  // role: '團隊職責待補',
+  role: `${memberinfo[index].role ? memberinfo[index].role : '團隊職責待補'}`,
+  // bio: '個人簡介待補，確認後將在這裡介紹這位夥伴。',
+  bio: `${memberinfo[index].bio ? memberinfo[index].bio : ''}`
 }))
 export const navigation = [{ id: 'home', label: '首頁' }, { id: 'about', label: '關於我們' }, { id: 'features', label: '專案特色' }, { id: 'works', label: '作品介紹' }, { id: 'tutorial', label: '使用教學' }, { id: 'contact', label: '聯絡我們' }]
 export const features = [
