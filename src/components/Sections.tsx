@@ -11,7 +11,7 @@ import {
   Sprout,
   Users,
 } from 'lucide-react'
-import { contact, features, navigation, project, team, tutorial } from '../data/content'
+import { contact, features, navigation, project, productHighlights, team, tutorial } from '../data/content'
 import { Brand, Phone, SectionHeading, SourceLink } from './Shared'
 
 const icons = {
@@ -126,10 +126,10 @@ export function Features() {
             title="為日常紀錄而設計"
             description="從一則記事開始，慢慢收藏生活的樣子。"
           />
-          <p className="mb-10 text-sm text-muted">以下功能依官方 README 整理</p>
+          <p className="mb-10 text-sm text-muted">從記錄到回顧，照顧生活中的小事</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 lg:grid-cols-2">
           {features.map((feature, index) => {
             const Icon = icons[feature.icon as keyof typeof icons]
 
@@ -168,8 +168,9 @@ export function Works() {
         <div className="bg-white p-7 sm:p-12 lg:self-stretch lg:flex lg:flex-col lg:justify-center">
           <p className="eyebrow">ANDROID APPLICATION</p>
           <h3 className="mt-5 text-3xl font-semibold">{project.name}</h3>
+
           <p className="mt-5 text-muted leading-8">
-            以本機記事與行事曆為核心的 Android App，結合多種時間視圖、照片記事與事項提醒，讓日常安排與生活記憶有序留存。
+            為長者打造的 Android App，結合本機記事、行事曆、照片記事與提醒。支援單張照片匯出與選用 Google 雙向同步，讓生活紀錄與日常安排更完整。
           </p>
           <div className="mt-7 flex flex-wrap gap-2">
             {project.tags.map(tag => (
@@ -184,8 +185,15 @@ export function Works() {
           <p className="mt-5 text-sm text-muted">
             此為 Android 應用程式，沒有瀏覽器線上體驗版本。
           </p>
-          <p className="mt-3 text-sm text-muted">官方 Phase 2 驗證截圖，非最新版介面。</p>
+          <p className="mt-3 text-sm text-muted">官方 Phase 2 驗證截圖，非目前操作介面。</p>
         </div>
+      </div>
+      <div className="mt-8 rounded-2xl border border-line bg-white p-6 sm:p-8">
+        <h3 className="text-2xl font-semibold">讓生活紀錄更完整</h3>
+        <div className="mt-6 grid gap-6 xl:grid-cols-3">
+          {productHighlights.map(item => <article key={item.title}><h4 className="text-xl font-semibold">{item.title}</h4><p className="mt-3 text-muted leading-8">{item.description}</p></article>)}
+        </div>
+        <p className="mt-6 text-muted">既有記事、照片、提醒與匯入紀錄會保留。雙向同步的實際週期與不同裝置情境，仍須依專案驗證紀錄確認。</p>
       </div>
       <a
         href="https://github.com/idealproduct/NoteHub/blob/main/README.md"
@@ -222,7 +230,7 @@ export function Tutorial() {
               loading="lazy"
             />
             <figcaption className="mt-5 text-sm text-muted leading-6">
-              官方儲存庫 Phase 2 驗證截圖，保留原始比例。這是早期介面，最新版本外觀可能不同。
+              官方儲存庫 Phase 2 驗證截圖，保留原始比例。這是早期介面，目前的操作介面可能不同。
               <span className="block mt-1">對應「{first.title}」與搜尋操作。</span>
             </figcaption>
           </figure>
@@ -241,7 +249,7 @@ export function Tutorial() {
             <div className="mt-6 rounded-xl bg-white p-5 text-sm text-muted leading-7">
               <b className="text-ink">開始之前</b>
               <p>
-                本教學依 README 功能整理。安裝方式與逐步操作截圖待確認；請先閱讀原始碼文件，或聯絡團隊取得協助。
+                本教學依專案功能文件整理。安裝方式與逐步操作截圖待確認；請先閱讀原始碼文件，或聯絡團隊取得協助。
               </p>
             </div>
           </div>
@@ -321,7 +329,15 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub 原始碼
+              專案原始碼
+              <ArrowUpRight size={16} />
+            </a>
+            <a
+              className="inline-flex min-h-11 items-center gap-2 text-teal"
+              href={project.webRepository}
+              target="_blank"
+              rel="noopener noreferrer">
+              網頁原始碼
               <ArrowUpRight size={16} />
             </a>
             <a className="break-all min-h-11 text-muted" href={`mailto:${contact.email}`}>
@@ -338,6 +354,6 @@ export function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </footer >
   )
 }
