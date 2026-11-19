@@ -134,10 +134,10 @@ export function Hero() {
             NoteHub 專為長者打造，以記事與行事曆陪你整理生活，
             <br className="hidden sm:block" />
             將平凡日子裡的珍貴片刻，好好留下。
-          </p>
+          </p>//
           <div className="mt-9 flex flex-wrap gap-4">
-            <a href="#features" className="button button-primary">
-              認識 Notehub
+            <a href="https://github.com/idealproduct/NoteHub/releases/latest/download/NoteHub.apk" className="button button-primary">
+              下載 Notehub
               <ArrowRight size={18} />
             </a>
             <SourceLink />
