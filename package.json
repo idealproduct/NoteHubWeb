@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --pretty false",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --cname notehub.yllab.dev",
     "security:dist": "node scripts/check-dist.mjs"
   },
   "dependencies": {
